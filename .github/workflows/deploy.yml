@@ -10,20 +10,16 @@ jobs:
     steps:
       - name: Checkout source code
         uses: actions/checkout@main
-	
       - name: Set up Node.js
         uses: actions/setup-node@main
         with:
           node-version: 14.x
-	  
       - name: Install dependencies
         run: npm install
-	
       - name: Build Page
         run: npm run build
         env:
           NODE_ENV: production
-	  
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
